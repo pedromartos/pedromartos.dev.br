@@ -2,7 +2,9 @@
 
 <template>
   <main>
-    <h1>Hello world test</h1>
+    <h1>Hello world</h1>
+
+    <div class="onesignal-customlink-container"></div>
   </main>
 </template>
 
