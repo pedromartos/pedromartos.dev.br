@@ -1,0 +1,26 @@
+name: Deploy on Prod Release
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: PRINT RELEASE DATA
+        id: check_release
+        run: |
+          echo "============================"
+          echo "${{ toJson(github.event.release) }}"
+          echo "============================"
+
+      - name: Deploy
+        if: success()
+        run: |
+          echo "Deploying the latest 'prod' release."
+          # Add your deployment script here
